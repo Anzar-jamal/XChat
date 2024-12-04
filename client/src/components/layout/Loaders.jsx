@@ -1,21 +1,10 @@
 import React from 'react';
-import Header from './Header';
-import Title from '../shared/Title';
+import {Grid, Skeleton, Stack } from '@mui/material';
 
-import Grid from '@mui/material/Grid';
-import ChatList from '../specific/ChatList';
+export const LayoutLoader = () => {
 
-
-
-
-const AppLayout = (WrappedComponent) => {
-    return (props) => (
-        <>
-            <Title />
-            <Header />
-            
-
-                <Grid container sx={{ width: "100%", height: "calc(100vh - 4rem)" }}>
+    return(
+        <Grid container sx={{ width: "100%", height: "calc(100vh - 4rem)" }}  spacing="1rem" >
 
                     <Grid item
                         sm={4} 
@@ -23,7 +12,7 @@ const AppLayout = (WrappedComponent) => {
                         sx={{ display: {xs: "none", sm: "block", backgroundColor: "#87CEEB" } }}
                         height={"100%"}
                     >
-                            <ChatList chats={[1,2,3,4,5]} />
+                            <Skeleton variant='rectangular' />
                     </Grid>
 
                     <Grid item 
@@ -32,8 +21,20 @@ const AppLayout = (WrappedComponent) => {
                         md={5}
                         lg={6}
                         height={"100%"}    
-                    >
-                            <WrappedComponent {...props} />
+                    >  
+
+
+                   <Stack spacing={"1rem"} >
+                   {
+                        Array.from({lemgth: 10}).map((_, index) =>(
+
+                            <Skeleton key={index} height={"5rem"} variant='rectangular' />
+                        ))
+                    }
+
+                   </Stack>
+                   
+                            
                     </Grid>
 
                     
@@ -46,15 +47,11 @@ const AppLayout = (WrappedComponent) => {
                             padding: "2rem",
                             backgroundColor: "#ac7070"
                         }}
+                        
                     >
-                            Third
+                           <Skeleton variant='rectangular' height={"100%"} />
                     </Grid>
 
                 </Grid>
-
-
-        </>
-    );
-};
-
-export default AppLayout;
+    )
+}

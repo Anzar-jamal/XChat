@@ -1,32 +1,54 @@
-import { AppBar, Box, IconButton, Toolbar, Tooltip, Typography } from '@mui/material'
-import React from 'react';
+import { AppBar, Backdrop, Box, IconButton, Toolbar, Tooltip, Typography } from '@mui/material'
+import React, {lazy, Suspense, useState} from 'react';
 import { orange } from '../../constants/color';
 import {Menu as MenuIcon} from '@mui/icons-material'
-import {Add as AddIcon, Logout as LogoutIcon, Group as GroupIcon, Search as SearchIcon } from '@mui/icons-material';
+import {Add as AddIcon,
+       Logout as LogoutIcon, 
+       Group as GroupIcon, 
+       Search as SearchIcon ,
+       Notifications as NotificationIcon } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
+
+
+const SearchDialog = lazy((() => import("../specific/Search")));
+const NotificationDialog = lazy(() => import("../specific/Notifications"));
+const NewGroupDialog = lazy(() => import("../specific/NewGroup"));
+
+
 
 const Header = () => {
 
 
   const navigate = useNavigate();
+  const [isMobile, setIsmobile] = useState(false);
+  const [isSearch, setIsSearch] = useState(false);
+  const [isNewGroup, setIsnewGroup] = useState(false);
+  const [isNotification, setIsNotification] = useState(false);
 
+
+
+
+
+
+  
+  
   const handleMobile = () => {
-    console.log("Mobile");
+    setIsmobile(prev => !prev);
   };
 
 
-  const openSearchDialog = () => {
-    console.log("openSearchDialog");
+  const openSearch = () => {
+    setIsSearch(prev => !prev);
   };
 
 
   const openNewGroup = () => {
-    navigate("/groups");
+    setIsnewGroup(prev => !prev);
   };
 
 
   const navigateToGroup = () => {
-    console.log("navigateToGroup");
+    navigate("/groups");
   };
 
 
@@ -35,13 +57,19 @@ const Header = () => {
   };
 
 
+  const openNotification = () => {
+    setIsNotification(prev => !prev);
+  };
+
+
+
   return (
     <>
       <Box sx={{flexGrow: 1}} height={"4rem"} >
 
         <AppBar 
         position='static'
-        sx={{bgcolor: orange}}
+        sx={{bgcolor: "#219ebc"}}
 
         >
 
@@ -83,21 +111,28 @@ const Header = () => {
         <IconBtn 
         title={"Search"}
         icon={<SearchIcon />}
-        onClick={openSearchDialog}
+        onClick={openSearch}
         />
 
 
         <IconBtn 
         title={"New Group"}
         icon={<AddIcon />}
-        onClick={openSearchDialog}
+        onClick={openNewGroup}
         />
 
 
         <IconBtn 
         title={"Manage Group"}
         icon={<GroupIcon />}
-        onClick={openSearchDialog}
+        onClick={navigateToGroup}
+        />
+
+
+        <IconBtn 
+        title={"Notifications"}
+        icon={<NotificationIcon />}
+        onClick={openNotification}
         />
 
 
@@ -117,8 +152,41 @@ const Header = () => {
 
 
       </Box>
+
+    
+    {
+      isSearch && (
+        <Suspense fallback={<Backdrop />} >
+          <SearchDialog />
+
+        </Suspense>
+      )
+    }
+
+    {
+      isNotification && (
+        <Suspense fallback={<Backdrop />} >
+          <NotificationDialog />
+
+        </Suspense>
+      )
+    }
+
+    {
+      isNewGroup && (
+        <Suspense fallback={<Backdrop />} >
+          <isNewGroup />
+
+        </Suspense>
+      )
+    }
+
+
+
+
+
     </>
-  )
+  );
 };
 
 
