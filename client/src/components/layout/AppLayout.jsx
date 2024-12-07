@@ -4,55 +4,65 @@ import Title from '../shared/Title';
 
 import Grid from '@mui/material/Grid';
 import ChatList from '../specific/ChatList';
+import { sampleChats } from '../../constants/sampleData';
+import { useParams } from 'react-router-dom';
 
-
-
+const params = useParams();
+        const chatId = params.chatId;
 
 const AppLayout = (WrappedComponent) => {
+
+    
+
     return (props) => (
+        
         <>
             <Title />
             <Header />
-            
 
-                <Grid container sx={{ width: "100%", height: "calc(100vh - 4rem)" }}>
+            <Grid container sx={{ width: "100%", height: "calc(100vh - 4rem)" }}>
 
-                    <Grid item
-                        sm={4} 
-                        md={3} 
-                        sx={{ display: {xs: "none", sm: "block", backgroundColor: "#87CEEB" } }}
-                        height={"100%"}
-                    >
-                            <ChatList chats={[1,2,3,4,5]} />
-                    </Grid>
-
-                    <Grid item 
-                        xs={12} 
-                        sm={8}
-                        md={5}
-                        lg={6}
-                        height={"100%"}    
-                    >
-                            <WrappedComponent {...props} />
-                    </Grid>
-
-                    
-                    <Grid item 
-                        md={4} 
-                        lg={3} 
-                        height={"100%"}
-                        sx={{ 
-                            display: {xs: "none", sm: "block"},
-                            padding: "2rem",
-                            backgroundColor: "#ac7070"
-                        }}
-                    >
-                            Third
-                    </Grid>
-
+                <Grid item
+                    sm={4} 
+                    md={3} 
+                    sx={{ display: {xs: "none", sm: "block", backgroundColor: "#87CEEB" } }}
+                    height={"100%"}
+                >
+                    <ChatList 
+                        chats={sampleChats}
+                        chatId={chatId}
+                        newMessagesAlert={[{
+                            chatId,
+                            count: "4"
+                        }]}
+                        onlineUsers={["1", "2"]}
+                    />
                 </Grid>
 
+                <Grid item 
+                    xs={12} 
+                    sm={8}
+                    md={5}
+                    lg={6}
+                    height={"100%"}    
+                >
+                    <WrappedComponent {...props} />
+                </Grid>
 
+                <Grid item 
+                    md={4} 
+                    lg={3} 
+                    height={"100%"}
+                    sx={{ 
+                        display: {xs: "none", sm: "block"},
+                        padding: "2rem",
+                        backgroundColor: "#ac7070"
+                    }}
+                >
+                    Third
+                </Grid>
+
+            </Grid>
         </>
     );
 };
