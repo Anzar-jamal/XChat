@@ -16,6 +16,13 @@ const AppLayout = (WrappedComponent) => {
     return (props) => {
         const params = useParams();
         const chatId = params.chatId;
+
+        const handleDeleteChat = (e, _id, groupChat) => {
+            e.preventDefault();
+            console.log("delete chat", _id, groupChat);
+
+
+        }
         
         return(
         <>
@@ -38,6 +45,7 @@ const AppLayout = (WrappedComponent) => {
                             count: "4"
                         }]}
                         onlineUsers={["1", "2"]}
+                        handleDeleteChat={handleDeleteChat}
                     />
                 </Grid>
 
