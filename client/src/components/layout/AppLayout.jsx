@@ -7,15 +7,17 @@ import ChatList from '../specific/ChatList';
 import { sampleChats } from '../../constants/sampleData';
 import { useParams } from 'react-router-dom';
 
-const params = useParams();
-        const chatId = params.chatId;
+
 
 const AppLayout = (WrappedComponent) => {
 
     
 
-    return (props) => (
+    return (props) => {
+        const params = useParams();
+        const chatId = params.chatId;
         
+        return(
         <>
             <Title />
             <Header />
@@ -65,6 +67,9 @@ const AppLayout = (WrappedComponent) => {
             </Grid>
         </>
     );
+
 };
+};
+
 
 export default AppLayout;
