@@ -2,6 +2,7 @@ import React, { memo } from 'react'
 import { Link } from '../styles/StyledComponents';
 
 import { Box, Stack, Typography } from '@mui/material';
+import AvatarCard from './AvatarCard';
 
 
 const ChatItem = ({
@@ -20,17 +21,18 @@ const ChatItem = ({
     <div style={{
       display: "flex",
       alignItems: "center",
-      padding: "1rem",
+      padding: "0.9rem",
       backgroundColor: sameSender ? "black" : "unset",
       // borderBottom: "1px solid #f0f0f0",    
       color: sameSender? "white" : "unset",
       position: "relative",
 
-      justifyContent: "space-between",
+      
     }} >
 
 
-      {/* { Avatar Card} */}
+      
+      <AvatarCard avatar={avatar} />
 
       <Stack>
 

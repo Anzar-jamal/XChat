@@ -69,7 +69,7 @@ const Header = () => {
 
         <AppBar 
         position='static'
-        sx={{bgcolor: "#219ebc"}}
+        sx={{bgcolor: "#ea7070"}}
 
         >
 
