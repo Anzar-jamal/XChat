@@ -69,6 +69,33 @@ export const sampleChats = [
 
 export const sampleUsers = [
 
+    {   
+        sender:{
+
+            avatar: ["https://www.w3schools.com/howto/img_avatar.png"],
+            name: "Anzar Jamal",
+        },
+        _id: "1",
+
+    },
+
+    {   
+        sender:{
+
+            avatar: ["https://www.w3schools.com/howto/img_avatar.png"],
+            name: "Bruce Wayne",
+        },
+        _id: "2", 
+
+    },
+
+];
+
+
+
+
+export const sampleNotifications = [
+
     {
         avatar: ["https://www.w3schools.com/howto/img_avatar.png"],
         name: "Anzar Jamal",
@@ -83,4 +110,4 @@ export const sampleUsers = [
 
     },
 
-]
+];

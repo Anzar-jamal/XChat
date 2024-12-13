@@ -46,7 +46,7 @@ const UserItem = ({user, handler, handlerIsLoading}) => {
             </IconButton>
         </Stack>
     </ListItem>
-  )
-}
+  );
+};
 
 export default UserItem;
