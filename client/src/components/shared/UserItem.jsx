@@ -4,7 +4,8 @@ import React from 'react'
 
 const UserItem = ({user, handler, handlerIsLoading}) => {
 
-    const {name, _id, avatar} = user;
+    const {sender, _id} = user;
+    const {name, avatar} = sender;
   return (
     <ListItem>
         <Stack 
@@ -14,7 +15,7 @@ const UserItem = ({user, handler, handlerIsLoading}) => {
         width={"100%"}
 
         >
-            <Avatar /> 
+            <Avatar src={avatar} /> 
 
             <Typography
              variant='body1'

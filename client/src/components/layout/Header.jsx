@@ -1,12 +1,6 @@
-import { AppBar, Backdrop, Box, IconButton, Toolbar, Tooltip, Typography } from '@mui/material'
-import React, {lazy, Suspense, useState} from 'react';
-import { orange } from '../../constants/color';
-import {Menu as MenuIcon} from '@mui/icons-material'
-import {Add as AddIcon,
-       Logout as LogoutIcon, 
-       Group as GroupIcon, 
-       Search as SearchIcon ,
-       Notifications as NotificationIcon } from '@mui/icons-material';
+import { Add as AddIcon, Group as GroupIcon, Logout as LogoutIcon, Menu as MenuIcon, Notifications as NotificationIcon, Search as SearchIcon } from '@mui/icons-material';
+import { AppBar, Backdrop, Box, IconButton, Toolbar, Tooltip, Typography } from '@mui/material';
+import React, { lazy, Suspense, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -75,14 +69,17 @@ const Header = () => {
 
           <Toolbar>
 
+            <img src="/XChatLogo.png" height={"40rem"}  alt="" />  
             <Typography 
               variant='h6'
               sx={{
-                display: {xs: "none", sm: "block"}
+                display: {xs: "none", sm: "block"},
+                marginLeft:"-0.4rem",
+                color: "black"
               }}
               
               >
-                XChat
+                Chat
             </Typography>
 
             <Box
