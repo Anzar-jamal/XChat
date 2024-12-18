@@ -1,8 +1,12 @@
+import Grid from '@mui/material/Grid';
 import React from 'react'
 
 const Groups = () => {
   return (
-    <div>Groups</div>
+    <Grid container height={"100vh"} >
+
+      
+    </Grid>
   )
 }
 

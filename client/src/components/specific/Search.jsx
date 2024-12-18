@@ -42,7 +42,11 @@ const Search = () => {
             <List>
               {users.map((i) => (
                 
-                <UserItem user={i} key={i._id} handler={addFriendHandler} handlerIsLoading={isLoadingSendFriendRequest} />
+                <UserItem 
+                  user={i} 
+                  key={i._id} 
+                  handler={addFriendHandler} 
+                  handlerIsLoading={isLoadingSendFriendRequest} />
               ))
 
               }

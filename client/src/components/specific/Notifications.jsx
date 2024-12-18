@@ -79,8 +79,8 @@ const NotificationItems = memo(({ sender, _id, handler}) => {
                 sm:"row"
               }}
               >
-              <Button onClick={()=> handler({__id, accept:true})} >Accept</Button>
-              <Button color='error' onClick={()=> handler({__id, accept:false})} >Reject</Button>
+              <Button variant='contained' sx={{marginRight:"0.5rem"}} onClick={()=> handler({__id, accept:true})} >Accept</Button>
+              <Button variant='outlined' color='error' onClick={()=> handler({__id, accept:false})} >Reject</Button>
               
             </Stack>
         </Stack>

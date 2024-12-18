@@ -2,6 +2,7 @@ import { Add as AddIcon, Group as GroupIcon, Logout as LogoutIcon, Menu as MenuI
 import { AppBar, Backdrop, Box, IconButton, Toolbar, Tooltip, Typography } from '@mui/material';
 import React, { lazy, Suspense, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import NewGroup from '../specific/NewGroup';
 
 
 const SearchDialog = lazy((() => import("../specific/Search")));
@@ -63,7 +64,7 @@ const Header = () => {
 
         <AppBar 
         position='static'
-        sx={{bgcolor: "#ea7070"}}
+        sx={{bgcolor: "#A19AD3"}}
 
         >
 
@@ -172,7 +173,7 @@ const Header = () => {
     {
       isNewGroup && (
         <Suspense fallback={<Backdrop />} >
-          <isNewGroup />
+          <NewGroup />
 
         </Suspense>
       )
