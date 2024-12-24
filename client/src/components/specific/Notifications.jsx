@@ -7,17 +7,27 @@ import {
   Stack,
   Typography
 } from '@mui/material';
-import React, { memo } from 'react';
+import React, { memo, useState } from 'react';
 import { sampleNotifications } from '../../constants/sampleData';
 
 const Notifications = () => {
+
+  const [open, setOpen] = useState(true);
+      const closeDialogHandler = () => {
+    
+        setOpen((prev)=> !prev);
+        
+    
+      }
+
+
 
   const friendRequestHandler = ({_id, accept }) => {
 
   }
 
   return (
-    <Dialog open  >
+    <Dialog open={open}  >
       <Stack p={{xs:"0.5rem", sm:"4rem"}} maxWidth={"50rem"}  >
 
         <DialogTitle sx={{textAlign: "center"}} >Notification</DialogTitle>
@@ -38,6 +48,7 @@ const Notifications = () => {
         }
 
       </Stack>
+      <Button variant='contained' color='error'   onClick={closeDialogHandler} >Close</Button>
     </Dialog>
   );
 };

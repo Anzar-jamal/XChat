@@ -23,9 +23,16 @@ const ChatItem = ({
       alignItems: "center",
       padding: "0.9rem",
       backgroundColor: sameSender ? "black" : "unset",
-      // borderBottom: "1px solid #f0f0f0",    
+      // borderBottom: "1px solid black",     
+      // borderRadius:"8rem",
+      // "&hover":{
+      //   borderRadius:"8rem",
+      //   backgroundColor:"red"
+      // },
+       
       color: sameSender? "white" : "unset",
       position: "relative",
+      
 
       
     }} >
@@ -34,7 +41,7 @@ const ChatItem = ({
       
       <AvatarCard avatar={avatar} />
 
-      <Stack>
+      <Stack  >
 
         <Typography>{name}</Typography>
 

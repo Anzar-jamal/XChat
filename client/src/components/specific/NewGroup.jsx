@@ -8,6 +8,14 @@ import { sampleUsers } from '../../constants/sampleData';
 
 const NewGroup = () => {
 
+  const [open, setOpen] = useState(true);
+    const closeDialogHandler = () => {
+  
+      setOpen((prev)=> !prev);
+      
+  
+    }
+
   const [members, setMembers] = useState([]);
   const [selectedMembers, setSelectedMembers] = useState([]);
 
@@ -31,7 +39,7 @@ const NewGroup = () => {
   
 
   return (
-    <Dialog open   >
+    <Dialog open={open}   >
       <Stack p={{xs:"0.5rem", sm:"2rem"}} minWidth={"25rem"}  maxWidth={"30rem"} spacing={"1rem"}  >
 
         <DialogTitle variant='h4' sx={{textAlign: "center"}} >New Group</DialogTitle>
@@ -56,12 +64,13 @@ const NewGroup = () => {
 
         <Stack direction={"row"} justifyContent={"space-evenly"} >
 
-          <Button variant='text' color='error' >Cancel</Button>
+          <Button variant='text' color='error' onClick={closeDialogHandler} >Cancel</Button>
           <Button variant='contained' >Create</Button>
 
         </Stack>
 
       </Stack>
+      
     </Dialog>
   );
 }

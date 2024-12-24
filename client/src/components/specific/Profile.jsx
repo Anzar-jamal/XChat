@@ -6,11 +6,13 @@ import {Face as FaceIcon,
 } from '@mui/icons-material';
 import moment from "moment";
 
+
 const Profile = () => {
   return (
     <Stack spacing={"2rem"} direction={"column"} alignItems={"center"} >
 
         <Avatar
+          src={'/AnzarProfile.jpg'}  
           sx={{
             width: 150,
             height: 150,

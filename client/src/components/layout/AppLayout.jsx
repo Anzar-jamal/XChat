@@ -70,7 +70,7 @@ const AppLayout = (WrappedComponent) => {
                         backgroundColor: "#232b2b"
                     }}
                 >
-                    <Profile />
+                    <Profile avatar={"/AnzarProfile.jpg"} />
                 </Grid>
 
             </Grid>
